@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <menuitem id="quintopet.main_quintopet_menu" name="Veterinaria" />
-        <menuitem id="quintopet.cliente_menu" name="Clientes" parent="quintopet.main_quintopet_menu"/>
-        <menuitem id="quintopet.veterinario_menu" name="Veterinarios" parent="quintopet.main_quintopet_menu"/>
-        <menuitem id="quintopet.cliente2_menu" name="Gestionar clientes" parent="quintopet.cliente_menu" action="" />
-        <menuitem id="quintopet.veterinario2_menu" name="Gestionar veterinarios" parent="quintopet.veterinario_menu" action=""/>
+        <menuitem id="main_quintopet_menu" name="Veterinaria" />
+        <menuitem id="cliente_menu" name="Clientes" parent="main_quintopet_menu"/>
+        <!-- <menuitem id="veterinario_menu" name="Veterinarios" parent="main_quintopet_menu"/> -->
+        <menuitem id="cliente2_menu" name="Gestionar clientes" parent="cliente_menu" action="act_cliente" />
+        <!-- <menuitem id="veterinario2_menu" name="Gestionar veterinarios" parent="veterinario_menu" action=""/> -->
     </data>
 </odoo>

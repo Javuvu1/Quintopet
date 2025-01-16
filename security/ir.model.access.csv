@@ -1,6 +1,6 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_quintopet_persona,quintopet.persona,model_quintopet_persona,base.group_user,1,1,1,1
-access_quintopet_cliente,quintopet.cliente,model_quintopet_persona,base.group_user,1,1,1,1
-access_quintopet_veterinario,quintopet.veterinario,model_quintopet_persona,base.group_user,1,1,1,1
+access_quintopet_cliente,quintopet.cliente,model_quintopet_cliente,base.group_user,1,1,1,1
+access_quintopet_veterinario,quintopet.veterinario,model_quintopet_veterinario,base.group_user,1,1,1,1
 
 
