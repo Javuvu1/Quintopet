@@ -8,7 +8,7 @@ class Cliente(models.Model):
     _name = 'quintopet.cliente' # modulo.modelo
     _description = 'Un cliente'
     
-    direccion = fields.Char("Dirección", size=64, required=True)
+    direccion = fields.Char("Dirección", size=64, required=False)
     tipo = fields.Selection([
         ('particular', 'Particular'),
         ('fundacion', 'Fundación'),
