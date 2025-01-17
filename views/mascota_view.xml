@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="act_mascota">
+            <field name="name">Mascotas</field>
+            <field name="res_model">quintopet.mascota</field>
+            <field name="view_mode">form,tree</field>
+        </record>
+    </data>
+</odoo>

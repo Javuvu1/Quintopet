@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="act_cita">
+            <field name="name">Citas</field>
+            <field name="res_model">quintopet.cita</field>
+            <field name="view_mode">form,tree</field>
+        </record>
+    </data>
+</odoo>
