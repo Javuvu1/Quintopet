@@ -8,5 +8,5 @@ class veterinario(models.Model):
     _name = 'quintopet.veterinario'
     
     especialidad = fields.Char("Especialidad", size=64, required=True)
-    numeroColegiado = fields.Integer("Numero de colegiado", default=25, required=True, readonly=False)
+    numeroColegiado = fields.Integer("Numero de colegiado", required=True, readonly=False)
     nomina = fields.Float("Nomina",(5, 2), required=True)

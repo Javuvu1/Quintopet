@@ -1,10 +1,49 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+    <!-- Vista formulario -->
     <data>
-        <record model="ir.actions.act_window" id="act_veterinario">
+        <record id="quintopet_veterinario_form_view" model="ir.ui.view">
+            <field name="name">quintopet.veterinario.form</field>
+            <field name="model">quintopet.veterinario</field>
+            <field name="arch" type="xml">
+                <form string="Veterinario">
+                    <sheet layout="auto">
+                        <group>
+                            <field name="nombre" />
+                            <field name="dni" />
+                            <field name="email"/>
+                            <field name="telefono" />
+                            <field name="especialidad" />
+                            <field name="numeroColegiado"/>
+                            <field name="nomina"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Vista lista (tree) -->
+        <record id="view_veterinario_tree_view" model="ir.ui.view">
+            <field name="name">quintopet.veterinario.tree</field>
+            <field name="model">quintopet.veterinario</field>
+            <field name="arch" type="xml">
+                <tree string="Veterinario">
+                    <field name="nombre" />
+                    <field name="dni" />
+                    <field name="email"/>
+                    <field name="telefono" />
+                    <field name="especialidad" />
+                    <field name="numeroColegiado"/>
+                    <field name="nomina"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Action -->
+        <record id="veterinario_list_action" model="ir.actions.act_window">
             <field name="name">Veterinarios</field>
             <field name="res_model">quintopet.veterinario</field>
-            <field name="view_mode">form,tree</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Crea el primer veterinario</p>
+            </field>
         </record>
     </data>
 </odoo>

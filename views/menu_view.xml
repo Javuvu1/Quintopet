@@ -4,7 +4,7 @@
         <menuitem id="main_quintopet_menu" name="Veterinaria" />
         <menuitem id="cliente_menu" name="Clientes" parent="main_quintopet_menu"/>
         <menuitem id="veterinario_menu" name="Veterinarios" parent="main_quintopet_menu"/>
-        <menuitem id="cliente2_menu" name="Gestionar clientes" parent="cliente_menu" action="act_cliente" />
-        <menuitem id="veterinario2_menu" name="Gestionar veterinarios" parent="veterinario_menu" action="act_veterinario"/>
+        <menuitem id="cliente2_menu" name="Gestionar clientes" parent="cliente_menu" action="cliente_list_action" />
+        <menuitem id="veterinario2_menu" name="Gestionar veterinarios" parent="veterinario_menu" action="veterinario_list_action"/>
     </data>
 </odoo>
