@@ -6,6 +6,9 @@
         <menuitem id="veterinario_menu" name="Veterinarios" parent="main_quintopet_menu"/>
         <menuitem id="mascota_menu" name="Mascotas" parent="main_quintopet_menu"/>
         <menuitem id="cita_menu" name="Citas" parent="main_quintopet_menu"/>
+        <menuitem id="prueba_medica_menu" name="Prueba Medica" parent="main_quintopet_menu"/>
+        <menuitem id="clinico_menu" name="Clinica" parent="main_quintopet_menu"/>
+
 
         <menuitem id="cliente2_menu" name="Gestionar clientes" parent="cliente_menu" action="act_cliente" />
         <menuitem id="veterinario2_menu" name="Gestionar veterinarios" parent="veterinario_menu" action="act_veterinario"/>
