@@ -1,0 +1,45 @@
+<odoo>
+    <!-- Vista formulario -->
+    <data>
+        <record id="quintopet_tratamiento_form_view" model="ir.ui.view">
+            <field name="name">quintopet.tratamiento.form</field>
+            <field name="model">quintopet.tratamiento</field>
+            <field name="arch" type="xml">
+                <form string="tratamiento">
+                    <sheet layout="auto">
+                        <group>
+                            <field name="nombreMedicamento" />
+                            <field name="descripcion" />
+                            <field name="patologia"/>
+                            <field name="inicioTratamiento" />
+                            <field name="finTratamiento" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Vista lista (tree) -->
+        <record id="view_tratamiento_tree_view" model="ir.ui.view">
+            <field name="name">quintopet.tratamiento.tree</field>
+            <field name="model">quintopet.tratamiento</field>
+            <field name="arch" type="xml">
+                <tree string="tratamiento">
+                    <field name="nombreMedicamento" />
+                    <field name="descripcion" />
+                    <field name="patologia"/>
+                    <field name="inicioTratamiento" />
+                    <field name="finTratamiento" />
+                </tree>
+            </field>
+        </record>
+        <!-- Action -->
+        <record id="act_tratamiento" model="ir.actions.act_window">
+            <field name="name">Tratamientos</field>
+            <field name="res_model">quintopet.tratamiento</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">Crea el primer tratamiento</p>
+            </field>
+        </record>
+    </data>
+</odoo>

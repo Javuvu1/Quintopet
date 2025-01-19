@@ -30,6 +30,8 @@
         'views/veterinario_view.xml',
         'views/mascota_view.xml',
         'views/cita_view.xml',
+        'views/tratamiento_view.xml',
+        'views/medicamento_view.xml',
         'views/menu_view.xml',
     ],
     # only loaded in demonstration mode

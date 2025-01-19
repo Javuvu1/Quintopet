@@ -8,13 +8,15 @@
         <menuitem id="cita_menu" name="Citas" parent="main_quintopet_menu"/>
         <menuitem id="prueba_medica_menu" name="Prueba Medica" parent="main_quintopet_menu"/>
         <menuitem id="clinico_menu" name="Clinica" parent="main_quintopet_menu"/>
-
+        <menuitem id="tratamiento_menu" name="Tratamiento" parent="main_quintopet_menu"/>
+        <menuitem id="medicamento_menu" name="Medicamento" parent="main_quintopet_menu"/>
 
         <menuitem id="cliente2_menu" name="Gestionar clientes" parent="cliente_menu" action="cliente_list_action" />
         <menuitem id="veterinario2_menu" name="Gestionar veterinarios" parent="veterinario_menu" action="veterinario_list_action"/>
         <menuitem id="mascota2_menu" name="Gestionar mascotas" parent="mascota_menu" action="act_mascota" />
         <menuitem id="cita2_menu" name="Gestionar citas" parent="cita_menu" action="act_cita"/>
-        
+        <menuitem id="tratamiento2_menu" name="Gestionar tratamiento" parent="tratamiento_menu" action="act_tratamiento"/>
+        <menuitem id="medicamento2_menu" name="Gestionar medicamento" parent="medicamento_menu" action="act_medicamento"/>
         
     </data>
 </odoo>
