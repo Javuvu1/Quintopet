@@ -18,6 +18,13 @@ class Mascota(models.Model):
     color = fields.Char("Color", size=64, required=True)
     peso = fields.Float( 'Peso', size=3, required=True)
     raza = fields.Char( 'Raza', size=64, required=True)
+    foto = fields.Binary('Foto', attachment=True)
+    
+    cliente_id = fields.Many2one(
+        'quintopet.cliente',  # Nombre técnico del modelo relacionado
+        string='Cliente',     # Etiqueta del campo
+        required=True         # Hace que la relación sea obligatoria
+    )
     
     
     

@@ -16,6 +16,12 @@ class Cliente(models.Model):
         ('empresa_privada', 'Empresa Privada')
     ], "Tipo de cliente", default='particular', required=True)
     
+    mascota_ids = fields.One2many(
+        'quintopet.mascota',  # Nombre técnico del modelo relacionado
+        'cliente_id',         # Nombre del campo Many2one en el modelo 'Mascota'
+        string='Mascotas'
+    )
+    
     # Relación One2many correctamente definida
     #mascotas_ids = fields.One2many(
     #    "quintopet.mascotas",  # Modelo relacionado

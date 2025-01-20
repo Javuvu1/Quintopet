@@ -1,10 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
-        <record model="ir.actions.act_window" id="act_mascota">
-            <field name="name">Mascotas</field>
-            <field name="res_model">quintopet.mascota</field>
-            <field name="view_mode">form,tree</field>
-        </record>
-    </data>
+    <!-- Vista Kanban para el modelo 'quintopet.mascota' -->
+    <record id="view_kanban_mascota" model="ir.ui.view">
+        <field name="name">quintopet.mascota.kanban</field>
+        <field name="model">quintopet.mascota</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_example">
+                <field name="foto"/>
+                <field name="nombreMascota"/>
+                <field name="sexo"/>
+                <field name="especie"/>
+                <field name="edad"/>
+                <field name="color"/>
+                <field name="peso"/>
+                <field name="raza"/>
+                <field name="cliente_id"/>
+                
+
+                <!-- Encabezado de cada tarjeta -->
+                <templates>
+                    <t t-name="kanban-box">
+                    <div class="oe_kanban_card">
+                        
+                        <div class="o_kanban_title">
+                            <strong t-esc="record.nombreMascota.value"/>
+                        </div>
+                        <div class="o_kanban_content">
+                            <p><strong>Especie:</strong> <span t-esc="record.especie.value"/></p>
+                            <p><strong>Sexo:</strong> <span t-esc="record.sexo.value"/></p>
+                            <p><strong>Edad:</strong> <span t-esc="record.edad.value"/> años</p>
+                            <p><strong>Color:</strong> <span t-esc="record.color.value"/></p>
+                            <p><strong>Peso:</strong> <span t-esc="record.peso.value"/> kg</p>
+                            <p><strong>Raza:</strong> <span t-esc="record.raza.value"/></p>
+                        </div>
+                        <div class="o_kanban_image">
+                            <!-- Mostrar la imagen -->
+                            <img t-if="record.foto.value" t-att-src="kanban_image('quintopet.mascota', 'foto', record.id)" class="img-thumbnail" style="max-width: 100%; max-height: 150px;"/>
+                        </div>
+                    </div>
+                </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="act_mascota" model="ir.actions.act_window">
+        <field name="name">Mascotas</field>
+        <field name="res_model">quintopet.mascota</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+            ¡Registra tus mascotas aquí!
+            </p>
+        </field>
+    </record>
+
 </odoo>
