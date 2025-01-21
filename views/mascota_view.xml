@@ -22,7 +22,7 @@
                         <div class="oe_kanban_global_click">
                             <div class="d-flex align-items-center">
                                 <!-- Columna izquierda: Contenido -->
-                                <div class="flex-grow-0 me-1" style="padding: 5px;">
+                                <div class="flex-grow-0 mx-3" style="padding: 5px;">
                                     <div class="o_kanban_title">
                                         <strong t-esc="record.name.value"/>
                                     </div>
@@ -37,7 +37,7 @@
                                     </div>
                                 </div>
                                 <!-- Columna derecha: Imagen -->
-                                <div class="o_kanban_image d-flex justify-content-start align-items-center">
+                                <div class="o_kanban_image d-flex justify-content-start align-items-center ml-5">
                                     <img t-if="record.foto.value"
                                          t-att-src="kanban_image('quintopet.mascota', 'foto', record.id.raw_value)"
                                          class="img-fluid rounded" 
