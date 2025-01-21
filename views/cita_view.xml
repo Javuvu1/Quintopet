@@ -1,10 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <data>
-        <record model="ir.actions.act_window" id="act_cita">
-            <field name="name">Citas</field>
-            <field name="res_model">quintopet.cita</field>
-            <field name="view_mode">form,tree</field>
-        </record>
-    </data>
+    <!-- Acción para la vista de citas -->
+    <record model="ir.actions.act_window" id="act_cita">
+        <field name="name">Citas</field>
+        <field name="res_model">quintopet.cita</field>
+        <field name="view_mode">calendar,tree,form</field>
+    </record>
+
+    <!-- Vista de calendario para el modelo 'quintopet.cita' -->
+    <record id="view_calendar_cita" model="ir.ui.view">
+        <field name="name">quintopet.cita.calendar</field>
+        <field name="model">quintopet.cita</field>
+        <field name="arch" type="xml">
+            <calendar string="Citas" date_start="horaInicio" date_stop="horaFin">
+                <!-- Campo de título para el evento -->
+                <field name="estado"/>
+
+                <!-- Información adicional que se muestra en la vista del calendario -->
+                <field name="diagnostico"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Vista de árbol para el modelo 'quintopet.cita' -->
+    <record id="view_tree_cita" model="ir.ui.view">
+        <field name="name">quintopet.cita.tree</field>
+        <field name="model">quintopet.cita</field>
+        <field name="arch" type="xml">
+            <tree string="Citas">
+                <field name="horaInicio"/>
+                <field name="horaFin"/>
+                <field name="estado"/>
+                <field name="diagnostico"/>
+                <field name="mascota_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista de formulario para el modelo 'quintopet.cita' -->
+    <record id="view_form_cita" model="ir.ui.view">
+        <field name="name">quintopet.cita.form</field>
+        <field name="model">quintopet.cita</field>
+        <field name="arch" type="xml">
+            <form string="Citas">
+                <sheet>
+                    <group>
+                        <field name="horaInicio"/>
+                        <field name="horaFin"/>
+                        <field name="estado"/>
+                        <field name="diagnostico"/>
+                        <field name="mascota_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 </odoo>

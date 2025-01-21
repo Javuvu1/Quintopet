@@ -11,4 +11,10 @@ class Cita(models.Model):
     horaFin = fields.Datetime("Fin", autodate = False)
     estado = fields.Char("Estado", size=64, required=False)
     diagnostico = fields.Text("Diagnostico", size=64, required=False)
+
+    mascota_id = fields.Many2one(
+        'quintopet.mascota',
+        string='Mascota',
+        required=False
+        )
     

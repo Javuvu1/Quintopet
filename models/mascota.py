@@ -26,11 +26,8 @@ class Mascota(models.Model):
         required=False         # Hace que la relación sea obligatoria
     )
     
-    
-    
-    # Relación Many2one correctamente definida
-    #mascotas_ids = fields.Many2one(
-    #    "quintopet.mascota",  # Modelo relacionado
-    #    "cliente_id",          # Campo inverso en el modelo relacionado
-    #    string="Mascotas registradas"
-    #)
+    cita_ids = fields.One2many(
+        'quintopet.cita',  # Nombre técnico del modelo relacionado
+        'mascota_id',      # Nombre del campo inverso en el modelo relacionado
+        string='Citas'     # Etiqueta del campo
+    )
