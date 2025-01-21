@@ -8,7 +8,7 @@
                 <form string="Cliente">
                     <sheet layout="auto">
                         <group>
-                            <field name="nombre" />
+                            <field name="name" />
                             <field name="dni" />
                             <field name="email"/>
                             <field name="telefono" />
@@ -26,7 +26,7 @@
             <field name="model">quintopet.cliente</field>
             <field name="arch" type="xml">
                 <tree string="Cliente">
-                    <field name="nombre" />
+                    <field name="name" />
                     <field name="dni" />
                     <field name="email"/>
                     <field name="telefono" />

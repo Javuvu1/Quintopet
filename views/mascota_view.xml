@@ -8,7 +8,7 @@
             <kanban class="o_kanban_example">
                 <field name="id"/>
                 <field name="foto"/>
-                <field name="nombreMascota"/>
+                <field name="name"/>
                 <field name="sexo"/>
                 <field name="especie"/>
                 <field name="edad"/>
@@ -17,25 +17,32 @@
                 <field name="raza"/>
                 <field name="cliente_id"/>
                 
-                <!-- Encabezado de cada tarjeta -->
                 <templates>
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click">
-                            <div class="o_kanban_title">
-                                <strong t-esc="record.nombreMascota.value"/>
-                            </div>
-                            <div class="o_kanban_content">
-                                <p><strong>Especie:</strong> <span t-esc="record.especie.value"/></p>
-                                <p><strong>Sexo:</strong> <span t-esc="record.sexo.value"/></p>
-                                <p><strong>Edad:</strong> <span t-esc="record.edad.value"/> años</p>
-                                <p><strong>Color:</strong> <span t-esc="record.color.value"/></p>
-                                <p><strong>Peso:</strong> <span t-esc="record.peso.value"/> kg</p>
-                                <p><strong>Raza:</strong> <span t-esc="record.raza.value"/></p>
-                            </div>
-                            <div class="o_kanban_image">
-                                <!-- Mostrar la imagen con tamaño fijo y más grande -->
-                                <img t-if="record.foto.value"
-                                     t-att-src="kanban_image('quintopet.mascota', 'foto', record.id.raw_value)"/>
+                            <div class="d-flex align-items-center">
+                                <!-- Columna izquierda: Contenido -->
+                                <div class="flex-grow-0 me-1" style="padding: 5px;">
+                                    <div class="o_kanban_title">
+                                        <strong t-esc="record.name.value"/>
+                                    </div>
+                                    <div class="o_kanban_content">
+                                        <p style="margin: 0;"><strong>Especie:</strong> <span t-esc="record.especie.value"/></p>
+                                        <p style="margin: 0;"><strong>Sexo:</strong> <span t-esc="record.sexo.value"/></p>
+                                        <p style="margin: 0;"><strong>Edad:</strong> <span t-esc="record.edad.value"/> años</p>
+                                        <p style="margin: 0;"><strong>Color:</strong> <span t-esc="record.color.value"/></p>
+                                        <p style="margin: 0;"><strong>Peso:</strong> <span t-esc="record.peso.value"/> kg</p>
+                                        <p style="margin: 0;"><strong>Raza:</strong> <span t-esc="record.raza.value"/></p>
+                                        <p style="margin: 0;"><strong>Cliente:</strong> <span t-esc="record.cliente_id.value"/></p>
+                                    </div>
+                                </div>
+                                <!-- Columna derecha: Imagen -->
+                                <div class="o_kanban_image d-flex justify-content-start align-items-center">
+                                    <img t-if="record.foto.value"
+                                         t-att-src="kanban_image('quintopet.mascota', 'foto', record.id.raw_value)"
+                                         class="img-fluid rounded" 
+                                         style="max-width: 120px; max-height: 120px;"/>
+                                </div>
                             </div>
                         </div>
                     </t>
@@ -55,5 +62,4 @@
             </p>
         </field>
     </record>
-
 </odoo>

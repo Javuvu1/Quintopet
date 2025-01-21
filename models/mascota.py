@@ -7,7 +7,7 @@ class Mascota(models.Model):
     _name = 'quintopet.mascota' # modulo.modelo
     _description = 'Una mascota'
     
-    nombreMascota = fields.Char("Nombre", size=64, required=True)
+    name = fields.Char("Nombre", size=64, required=True)
     sexo = fields.Selection([
         ('macho', 'Macho'), 
         ('hembra', 'Hembra')
@@ -15,7 +15,7 @@ class Mascota(models.Model):
     numChip = fields.Integer("Número de chip", size=2, required=True)
     especie = fields.Char("Especie", size=64, required=True)
     edad = fields.Integer("Edad", size=2, required=True)
-    color = fields.Char("Color", size=64, required=True)
+    color = fields.Char("Color", size=64, required=False)
     peso = fields.Float( 'Peso', size=3, required=True)
     raza = fields.Char( 'Raza', size=64, required=True)
     foto = fields.Binary('Foto', attachment=True)
@@ -23,7 +23,7 @@ class Mascota(models.Model):
     cliente_id = fields.Many2one(
         'quintopet.cliente',  # Nombre técnico del modelo relacionado
         string='Cliente',     # Etiqueta del campo
-        required=True         # Hace que la relación sea obligatoria
+        required=False         # Hace que la relación sea obligatoria
     )
     
     
