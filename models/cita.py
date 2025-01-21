@@ -14,7 +14,6 @@ class Cita(models.Model):
 
     mascota_id = fields.Many2one(
         'quintopet.mascota',
-        string='Mascota',
-        required=False
+        string='Mascota'
         )
     
