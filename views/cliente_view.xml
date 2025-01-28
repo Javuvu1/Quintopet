@@ -14,7 +14,13 @@
                             <field name="telefono" />
                             <field name="direccion" />
                             <field name="tipo"/>
-                            <field name="mascota_ids"/>
+                            <field name="mascota_ids">
+                                <tree string="Mascotas">
+                                    <field name="name" />
+                                    <field name="raza" />
+                                    <field name="edad" />
+                                </tree>
+                            </field>
                         </group>
                     </sheet>
                 </form>
