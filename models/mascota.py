@@ -12,12 +12,12 @@ class Mascota(models.Model):
         ('macho', 'Macho'), 
         ('hembra', 'Hembra')
         ], 'Sexo', required=True)
-    numChip = fields.Integer("Número de chip", size=2, required=True)
+    numChip = fields.Integer("Número de chip", size=7, required=True)
     especie = fields.Char("Especie", size=64, required=True)
     edad = fields.Integer("Edad", size=2, required=True)
     color = fields.Char("Color", size=64, required=False)
-    peso = fields.Float( 'Peso', size=3, required=True)
-    raza = fields.Char( 'Raza', size=64, required=True)
+    peso = fields.Float('Peso', size=3, required=True)
+    raza = fields.Char('Raza', size=64, required=True)
     foto = fields.Binary('Foto', attachment=True)
     
     cliente_id = fields.Many2one(
@@ -29,5 +29,7 @@ class Mascota(models.Model):
     cita_ids = fields.One2many(
         'quintopet.cita',  # Nombre técnico del modelo relacionado
         'mascota_id',      # Nombre del campo inverso en el modelo relacionado
-        string='Citas'     # Etiqueta del campo
+        string='Cita'     # Etiqueta del campo
     )
+
+    #Falta la relacion con la tabla de jose

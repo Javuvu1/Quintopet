@@ -33,6 +33,8 @@
                 <field name="estado"/>
                 <field name="diagnostico"/>
                 <field name="mascota_id"/>
+                <field name="tratamiento_ids"/>
+                <field name="veterinario_id"/>
             </tree>
         </field>
     </record>
@@ -50,6 +52,8 @@
                         <field name="estado"/>
                         <field name="diagnostico"/>
                         <field name="mascota_id"/>
+                        <field name="tratamiento_ids"/>
+                        <field name="veterinario_id"/>
                     </group>
                 </sheet>
             </form>
