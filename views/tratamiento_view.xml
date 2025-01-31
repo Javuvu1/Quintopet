@@ -13,6 +13,8 @@
                             <field name="patologia"/>
                             <field name="inicioTratamiento" />
                             <field name="finTratamiento" />
+                            <field name="cita_id" />
+                            <field name="medicamento_ids" />
                         </group>
                     </sheet>
                 </form>
@@ -29,6 +31,8 @@
                     <field name="patologia"/>
                     <field name="inicioTratamiento" />
                     <field name="finTratamiento" />
+                    <field name="cita_id" />
+                    <field name="medicamento_ids" />
                 </tree>
             </field>
         </record>
