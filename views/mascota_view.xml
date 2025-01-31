@@ -16,6 +16,7 @@
                 <field name="peso"/>
                 <field name="raza"/>
                 <field name="cliente_id"/>
+                <field name="cita_ids"/>
                 
                 <templates>
                     <t t-name="kanban-box">
