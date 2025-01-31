@@ -7,3 +7,5 @@ from . import mascota
 from . import cita
 from . import tratamiento
 from . import medicamento
+from . import prueba_medica
+from . import clinica

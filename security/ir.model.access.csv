@@ -6,4 +6,6 @@ access_quintopet_mascota,quintopet.mascota,model_quintopet_mascota,base.group_us
 access_quintopet_cita,quintopet.cita,model_quintopet_cita,base.group_user,1,1,1,1
 access_quintopet_tratamiento,quintopet.tratamiento,model_quintopet_tratamiento,base.group_user,1,1,1,1
 access_quintopet_medicamento,quintopet.medicamento,model_quintopet_medicamento,base.group_user,1,1,1,1
+access_quintopet_prueba_medica,quintopet.prueba_medica,model_quintopet_prueba_medica,base.group_user,1,1,1,1
+access_quintopet_clinica,quintopet.clinica,model_quintopet_clinica,base.group_user,1,1,1,1
 
