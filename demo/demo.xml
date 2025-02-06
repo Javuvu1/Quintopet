@@ -1,30 +1,91 @@
 <odoo>
     <data>
-<!--
-          <record id="object0" model="quintopet.quintopet">
-            <field name="name">Object 0</field>
-            <field name="value">0</field>
-          </record>
+        <!-- Cliente 1 -->
+        <record id="cliente_juan_perez" model="quintopet.cliente">
+            <field name="name">Juan Pérez</field>
+            <field name="dni">12345678A</field>
+            <field name="email">juan.perez@email.com</field>
+            <field name="telefono">+34 600 123 456</field>
+            <field name="direccion">Calle Mayor 45, Madrid</field>
+            <field name="tipo">particular</field>
+            <field name="state">paga_siempre</field>
+        </record>
 
-          <record id="object1" model="quintopet.quintopet">
-            <field name="name">Object 1</field>
-            <field name="value">10</field>
-          </record>
+        <!-- Cliente 2 -->
+        <record id="cliente_maria_gomez" model="quintopet.cliente">
+            <field name="name">María Gómez</field>
+            <field name="dni">87654321B</field>
+            <field name="email">maria.gomez@email.com</field>
+            <field name="telefono">+34 611 987 654</field>
+            <field name="direccion">Av. de la Libertad 12, Barcelona</field>
+            <field name="tipo">empresa_privada</field>
+            <field name="state">no_paga</field>
+        </record>
 
-          <record id="object2" model="quintopet.quintopet">
-            <field name="name">Object 2</field>
-            <field name="value">20</field>
-          </record>
+        <!-- Cliente 3 -->
+        <record id="cliente_carlos_fernandez" model="quintopet.cliente">
+            <field name="name">Carlos Fernández</field>
+            <field name="dni">11223344C</field>
+            <field name="email">carlos.fernandez@email.com</field>
+            <field name="telefono">+34 622 555 789</field>
+            <field name="direccion">Plaza España 8, Valencia</field>
+            <field name="tipo">fundacion</field>
+            <field name="state">paga_siempre</field>
+        </record>
 
-          <record id="object3" model="quintopet.quintopet">
-            <field name="name">Object 3</field>
-            <field name="value">30</field>
-          </record>
+        <!-- Cliente 4 -->
+        <record id="cliente_luisa_martinez" model="quintopet.cliente">
+            <field name="name">Luisa Martínez</field>
+            <field name="dni">55667788D</field>
+            <field name="email">luisa.martinez@email.com</field>
+            <field name="telefono">+34 633 999 321</field>
+            <field name="direccion">Calle Serrano 20, Sevilla</field>
+            <field name="tipo">empresa_publica</field>
+            <field name="state">no_paga</field>
+        </record>
 
-          <record id="object4" model="quintopet.quintopet">
-            <field name="name">Object 4</field>
-            <field name="value">40</field>
-          </record>
--->
+        <!-- Veterinario 1 -->
+        <record id="veterinario_juan_martinez" model="quintopet.veterinario">
+            <field name="name">Juan Martínez</field>
+            <field name="dni">12345678X</field>
+            <field name="email">juan.martinez@veterinario.com</field>
+            <field name="telefono">+34 699 123 456</field>
+            <field name="especialidad">Cirugía Veterinaria</field>
+            <field name="numeroColegiado">1234</field> <!-- Cambié el valor a numérico -->
+            <field name="nomina">2000</field>
+        </record>
+
+        <!-- Veterinario 2 -->
+        <record id="veterinario_maria_lopez" model="quintopet.veterinario">
+            <field name="name">María López</field>
+            <field name="dni">23456789Y</field>
+            <field name="email">maria.lopez@veterinario.com</field>
+            <field name="telefono">+34 622 987 654</field>
+            <field name="especialidad">Dermatología Veterinaria</field>
+            <field name="numeroColegiado">2345</field> <!-- Cambié el valor a numérico -->
+            <field name="nomina">2200</field>
+        </record>
+
+        <!-- Veterinario 3 -->
+        <record id="veterinario_carlos_garcia" model="quintopet.veterinario">
+            <field name="name">Carlos García</field>
+            <field name="dni">34567890Z</field>
+            <field name="email">carlos.garcia@veterinario.com</field>
+            <field name="telefono">+34 633 555 789</field>
+            <field name="especialidad">Odontología Veterinaria</field>
+            <field name="numeroColegiado">3456</field> <!-- Cambié el valor a numérico -->
+            <field name="nomina">2400</field>
+        </record>
+
+        <!-- Veterinario 4 -->
+        <record id="veterinario_luisa_rivera" model="quintopet.veterinario">
+            <field name="name">Luisa Rivera</field>
+            <field name="dni">45678901W</field>
+            <field name="email">luisa.rivera@veterinario.com</field>
+            <field name="telefono">+34 644 777 321</field>
+            <field name="especialidad">Medicina Interna</field>
+            <field name="numeroColegiado">4567</field> <!-- Cambié el valor a numérico -->
+            <field name="nomina">2600</field>
+        </record>
     </data>
 </odoo>

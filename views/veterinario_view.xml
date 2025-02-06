@@ -1,46 +1,58 @@
 <odoo>
-    <!-- Vista formulario -->
     <data>
-        <record id="quintopet_veterinario_form_view" model="ir.ui.view">
-            <field name="name">quintopet.veterinario.form</field>
+        <!-- Vista Kanban -->
+        <record id="quintopet_veterinario_kanban_view" model="ir.ui.view">
+            <field name="name">quintopet.veterinario.kanban</field>
             <field name="model">quintopet.veterinario</field>
             <field name="arch" type="xml">
-                <form string="Veterinario">
-                    <sheet layout="auto">
-                        <group>
-                            <field name="name" />
-                            <field name="dni" />
-                            <field name="email"/>
-                            <field name="telefono" />
-                            <field name="especialidad" />
-                            <field name="numeroColegiado"/>
-                            <field name="nomina"/>
-                        </group>
-                    </sheet>
-                </form>
+                <kanban class="o_kanban_view">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-data-id="{{ record.id }}" class="oe_kanban_card"
+                                t-att-onclick="'window.location=\'/web#id=' + record.id + '&amp;model=quintopet.veterinario&amp;view_type=form\''">
+                                
+                                <!-- Imagen del veterinario -->
+                                <div class="o_kanban_image">
+                                    <field name="foto" widget="image" class="oe_avatar"/>
+                                </div>
+
+                                <!-- Información del veterinario -->
+                                <div class="oe_kanban_details">
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
+                                    <div>
+                                        <span class="fa fa-id-card"/> <field name="dni"/>
+                                    </div>
+                                    <div>
+                                        <span class="fa fa-envelope"/> <field name="email"/>
+                                    </div>
+                                    <div>
+                                        <span class="fa fa-phone"/> <field name="telefono"/>
+                                    </div>
+                                    <div>
+                                        <span class="fa fa-user-md" style="color:#3498db;"/> 
+                                        <field name="especialidad"/>
+                                    </div>
+                                    <div>
+                                        <span class="fa fa-certificate"/> <field name="numeroColegiado"/>
+                                    </div>
+                                    <div>
+                                        <span class="fa fa-money"/> <field name="nomina"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
             </field>
         </record>
-        <!-- Vista lista (tree) -->
-        <record id="view_veterinario_tree_view" model="ir.ui.view">
-            <field name="name">quintopet.veterinario.tree</field>
-            <field name="model">quintopet.veterinario</field>
-            <field name="arch" type="xml">
-                <tree string="Veterinario">
-                    <field name="name" />
-                    <field name="dni" />
-                    <field name="email"/>
-                    <field name="telefono" />
-                    <field name="especialidad" />
-                    <field name="numeroColegiado"/>
-                    <field name="nomina"/>
-                </tree>
-            </field>
-        </record>
-        <!-- Action -->
+
+        <!-- Modificar acción para incluir vista Kanban -->
         <record id="veterinario_list_action" model="ir.actions.act_window">
             <field name="name">Veterinarios</field>
             <field name="res_model">quintopet.veterinario</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">kanban,tree,form</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Crea el primer veterinario</p>
             </field>

@@ -32,9 +32,11 @@
         'views/cita_view.xml',
         'views/tratamiento_view.xml',
         'views/medicamento_view.xml',
-        'views/menu_view.xml',
         'views/prueba_medica.xml',
         'views/clinica.xml',
+        'views/cliente_reports.xml',
+        'views/menu_view.xml',
+           
     ],
     # only loaded in demonstration mode
     'demo': [

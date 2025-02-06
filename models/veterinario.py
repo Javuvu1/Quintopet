@@ -10,6 +10,7 @@ class veterinario(models.Model):
     especialidad = fields.Char("Especialidad", size=64, required=True)
     numeroColegiado = fields.Integer("Numero de colegiado", required=True, readonly=False)
     nomina = fields.Float("Nomina",(5, 2), required=True)
+    foto = fields.Binary("Foto")
 
     cita_ids = fields.One2many(
         'quintopet.cita',
