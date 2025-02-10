@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError
 
 
 class veterinario(models.Model):
@@ -17,3 +18,27 @@ class veterinario(models.Model):
         'veterinario_id',
         string="Citas",
     )
+    
+    @api.onchange('nomina')
+    def _onchange_nomina(self):
+        if self.nomina and self.nomina < 500:
+            return {
+                'warning': {
+                    'title': "Nómina demasiado baja",
+                    'message': "La nómina no puede ser menor a 500.",
+                }
+            }
+
+    @api.constrains('numeroColegiado')
+    def _check_numeroColegiado(self):
+        for record in self:
+            if record.numeroColegiado <= 0:
+                raise ValidationError("El número de colegiado debe ser un número positivo.")
+    
+    @api.constrains('nomina')
+    def _check_nomina(self):
+        for record in self:
+            if record.nomina < 0:
+                raise ValidationError("La nómina no puede ser negativa.")
+
+
