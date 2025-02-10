@@ -1,0 +1,77 @@
+<odoo>
+    <data>
+        <!-- Plantilla del informe de mascotas -->
+        <template id="report_quintopet_mascotas_document">
+            <t t-name="quintopet.report_quintopet_mascotas_document">
+                <t t-call="web.html_container">
+                    <t t-call="web.internal_layout">
+                        <div class="page">
+                            <h1 style="text-align: center;">Reporte de Mascotas</h1>
+                            <table class="table table-bordered" style="width: 100%; border-collapse: collapse; text-align: left;">
+                                <thead>
+                                    <tr>
+                                        <th style="border: 1px solid #000; padding: 8px;">Nombre</th>
+                                        <th style="border: 1px solid #000; padding: 8px;">Sexo</th>
+                                        <th style="border: 1px solid #000; padding: 8px;">Número de Chip</th>
+                                        <th style="border: 1px solid #000; padding: 8px;">Especie</th>
+                                        <th style="border: 1px solid #000; padding: 8px;">Edad</th>
+                                        <th style="border: 1px solid #000; padding: 8px;">Color</th>
+                                        <th style="border: 1px solid #000; padding: 8px;">Peso</th>
+                                        <th style="border: 1px solid #000; padding: 8px;">Raza</th>
+                                        <th style="border: 1px solid #000; padding: 8px;">Estado</th>
+                                        <th style="border: 1px solid #000; padding: 8px;">Dueño</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="docs" t-as="mascota">
+                                        <tr>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="mascota.name"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="mascota.sexo"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="mascota.numChip"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="mascota.especie"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="mascota.edad"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="mascota.color"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="mascota.peso"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="mascota.raza"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="mascota.state"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="mascota.cliente_id.name or 'Sin dueño'"/>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <!-- Acción de reporte -->
+        <report id="quintopet_mascotas_report_action" 
+            model="quintopet.mascota" 
+            string="Reporte de Mascotas" 
+            report_type="qweb-pdf" 
+            name="quintopet.report_quintopet_mascotas_document"
+            file="quintopet.report_quintopet_mascotas_document" 
+            print_report_name="'Mascotas_QuintoPet'"/>
+    </data>
+</odoo>

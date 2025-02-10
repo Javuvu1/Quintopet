@@ -36,6 +36,7 @@
         'views/prueba_medica.xml',
         'views/clinica.xml',
         'views/cliente_reports.xml',
+        'views/mascota_reports.xml',
         'views/menu_view.xml',
            
     ],
