@@ -10,7 +10,8 @@ class prueba_medica(models.Model):
 
     clinica_id = fields.Many2one(
         'quintopet.clinica', 
-        string='Clínica'
+        string='Clínica',
+        required=True
     )
 
     mascota_id = fields.Many2one(
