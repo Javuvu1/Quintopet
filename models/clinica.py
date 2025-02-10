@@ -9,7 +9,8 @@ class clinica(models.Model):
     telefonoClinica = fields.Integer("Telefono de la clinica", size=15, required=True)
     cp= fields.Integer("Codigo Postal", size=5, required=True)
     
-    prueba_medica_ids = fields.Oney2many(
+    prueba_medica_ids = fields.One2many(
     'quintopet.prueba_medica',
+    "clinica_id",
     string = 'Prueba médica'   
     )
