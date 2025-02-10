@@ -9,6 +9,7 @@
             <field name="direccion">Calle Mayor 45, Madrid</field>
             <field name="tipo">particular</field>
             <field name="state">paga_siempre</field>
+            <field name="mascota_ids" eval="[(6, 0, [ref('mascota_max')])]"/>
         </record>
 
         <!-- Cliente 2 -->
@@ -20,6 +21,7 @@
             <field name="direccion">Av. de la Libertad 12, Barcelona</field>
             <field name="tipo">empresa_privada</field>
             <field name="state">no_paga</field>
+            <field name="mascota_ids" eval="[(6, 0, [ref('mascota_luna')])]"/>
         </record>
 
         <!-- Cliente 3 -->
@@ -31,6 +33,7 @@
             <field name="direccion">Plaza España 8, Valencia</field>
             <field name="tipo">fundacion</field>
             <field name="state">paga_siempre</field>
+            <field name="mascota_ids" eval="[(6, 0, [ref('mascota_rocky')])]"/>
         </record>
 
         <!-- Cliente 4 -->
@@ -42,17 +45,75 @@
             <field name="direccion">Calle Serrano 20, Sevilla</field>
             <field name="tipo">empresa_publica</field>
             <field name="state">no_paga</field>
+            <field name="mascota_ids" eval="[(6, 0, [ref('mascota_bella')])]"/>
         </record>
 
-        <!-- Veterinario 1 -->
+        <!-- Mascota 1 - Asociado a Juan Pérez -->
+        <record id="mascota_max" model="quintopet.mascota">
+            <field name="name">Max</field>
+            <field name="sexo">macho</field>
+            <field name="numChip">1234567</field>
+            <field name="especie">Perro</field>
+            <field name="edad">5</field>
+            <field name="color">Marrón</field>
+            <field name="peso">12.5</field>
+            <field name="raza">Labrador</field>
+            <field name="state">por_vacunar</field>
+            <field name="cliente_id" ref="cliente_juan_perez"/>
+        </record>
+
+        <!-- Mascota 2 - Asociada a María Gómez -->
+        <record id="mascota_luna" model="quintopet.mascota">
+            <field name="name">Luna</field>
+            <field name="sexo">hembra</field>
+            <field name="numChip">7654321</field>
+            <field name="especie">Gato</field>
+            <field name="edad">3</field>
+            <field name="color">Gris</field>
+            <field name="peso">4.2</field>
+            <field name="raza">Siamés</field>
+            <field name="state">vacunado</field>
+            <field name="cliente_id" ref="cliente_maria_gomez"/>
+        </record>
+
+        <!-- Mascota 3 - Asociada a Carlos Fernández -->
+        <record id="mascota_rocky" model="quintopet.mascota">
+            <field name="name">Rocky</field>
+            <field name="sexo">macho</field>
+            <field name="numChip">9876543</field>
+            <field name="especie">Perro</field>
+            <field name="edad">7</field>
+            <field name="color">Negro</field>
+            <field name="peso">8.0</field>
+            <field name="raza">Bulldog</field>
+            <field name="state">por_vacunar</field>
+            <field name="cliente_id" ref="cliente_carlos_fernandez"/>
+        </record>
+
+        <!-- Mascota 4 - Asociada a Luisa Martínez -->
+        <record id="mascota_bella" model="quintopet.mascota">
+            <field name="name">Bella</field>
+            <field name="sexo">hembra</field>
+            <field name="numChip">4567890</field>
+            <field name="especie">Perro</field>
+            <field name="edad">2</field>
+            <field name="color">Blanco</field>
+            <field name="peso">5.5</field>
+            <field name="raza">Caniche</field>
+            <field name="state">vacunado</field>
+            <field name="cliente_id" ref="cliente_luisa_martinez"/>
+        </record>
+
+       <!-- Veterinario 1 -->
         <record id="veterinario_juan_martinez" model="quintopet.veterinario">
             <field name="name">Juan Martínez</field>
             <field name="dni">12345678X</field>
             <field name="email">juan.martinez@veterinario.com</field>
             <field name="telefono">+34 699 123 456</field>
             <field name="especialidad">Cirugía Veterinaria</field>
-            <field name="numeroColegiado">1234</field> <!-- Cambié el valor a numérico -->
+            <field name="numeroColegiado">1234</field>
             <field name="nomina">2000</field>
+            <field name="cita_ids" eval="[(6, 0, [ref('cita_1')])]"/>
         </record>
 
         <!-- Veterinario 2 -->
@@ -62,8 +123,9 @@
             <field name="email">maria.lopez@veterinario.com</field>
             <field name="telefono">+34 622 987 654</field>
             <field name="especialidad">Dermatología Veterinaria</field>
-            <field name="numeroColegiado">2345</field> <!-- Cambié el valor a numérico -->
+            <field name="numeroColegiado">2345</field>
             <field name="nomina">2200</field>
+            <field name="cita_ids" eval="[(6, 0, [ref('cita_2')])]"/>
         </record>
 
         <!-- Veterinario 3 -->
@@ -73,8 +135,9 @@
             <field name="email">carlos.garcia@veterinario.com</field>
             <field name="telefono">+34 633 555 789</field>
             <field name="especialidad">Odontología Veterinaria</field>
-            <field name="numeroColegiado">3456</field> <!-- Cambié el valor a numérico -->
+            <field name="numeroColegiado">3456</field>
             <field name="nomina">2400</field>
+            <field name="cita_ids" eval="[(6, 0, [ref('cita_3')])]"/>
         </record>
 
         <!-- Veterinario 4 -->
@@ -84,8 +147,50 @@
             <field name="email">luisa.rivera@veterinario.com</field>
             <field name="telefono">+34 644 777 321</field>
             <field name="especialidad">Medicina Interna</field>
-            <field name="numeroColegiado">4567</field> <!-- Cambié el valor a numérico -->
+            <field name="numeroColegiado">4567</field>
             <field name="nomina">2600</field>
+            <field name="cita_ids" eval="[(6, 0, [ref('cita_4')])]"/>
         </record>
+
+        <!-- Cita 1 - Asociada a Juan Martínez y Max -->
+        <record id="cita_1" model="quintopet.cita">
+            <field name="horaInicio">2023-02-28 10:00:00</field>
+            <field name="horaFin">2023-02-28 11:00:00</field>
+            <field name="estado">Programada</field>
+            <field name="diagnostico">Revisión anual</field>
+            <field name="mascota_id" ref="mascota_max"/>
+            <field name="veterinario_id" ref="veterinario_juan_martinez"/>
+        </record>
+
+        <!-- Cita 2 - Asociada a María López y Luna -->
+        <record id="cita_2" model="quintopet.cita">
+            <field name="horaInicio">2023-02-28 15:00:00</field>
+            <field name="horaFin">2023-02-28 16:00:00</field>
+            <field name="estado">Programada</field>
+            <field name="diagnostico">Vacunación</field>
+            <field name="mascota_id" ref="mascota_luna"/>
+            <field name="veterinario_id" ref="veterinario_maria_lopez"/>
+        </record>
+
+        <!-- Cita 3 - Asociada a Carlos García y Rocky -->
+        <record id="cita_3" model="quintopet.cita">
+            <field name="horaInicio">2023-03-01 09:00:00</field>
+            <field name="horaFin">2023-03-01 10:00:00</field>
+            <field name="estado">Programada</field>
+            <field name="diagnostico">Control de peso</field>
+            <field name="mascota_id" ref="mascota_rocky"/>
+            <field name="veterinario_id" ref="veterinario_carlos_garcia"/>
+        </record>
+
+        <!-- Cita 4 - Asociada a Luisa Rivera y Bella -->
+        <record id="cita_4" model="quintopet.cita">
+            <field name="horaInicio">2023-03-02 14:00:00</field>
+            <field name="horaFin">2023-03-02 15:00:00</field>
+            <field name="estado">Programada</field>
+            <field name="diagnostico">Revisión dental</field>
+            <field name="mascota_id" ref="mascota_bella"/>
+            <field name="veterinario_id" ref="veterinario_luisa_rivera"/>
+        </record>
+
     </data>
 </odoo>
