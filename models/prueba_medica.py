@@ -1,10 +1,10 @@
 from odoo import models, fields, api
 
-class PruebaMedica(models.Model):
-    _name = 'quintopet.pruebamedica'
+class prueba_medica(models.Model):
+    _name = 'quintopet.prueba_medica'
     _description = 'Prueba Médica'
 
-    fechaHora = fields.Datetime('Fecha y Hora', required=True)
+    fechaHoras = fields.Datetime('Fecha y Hora', required=True)
     tipoPrueba = fields.Char('Tipo de Prueba', required=True)
     observaciones = fields.Text('Observaciones')
 
@@ -14,7 +14,7 @@ class PruebaMedica(models.Model):
     )
 
     mascota_id = fields.Many2one(
-        'quintopet.mascota',  # Relación con Mascota
+        'quintopet.mascota', 
         string='Mascota', 
         required=True
     )

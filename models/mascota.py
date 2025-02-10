@@ -4,7 +4,7 @@ from odoo import models, fields, api
 from odoo.exceptions import UserError
 
 class Mascota(models.Model):
-    _name = 'quintopet.mascota' # modulo.modelo
+    _name = 'quintopet.mascota'
     _description = 'Una mascota'
     
     name = fields.Char("Nombre", size=64, required=True)
@@ -36,7 +36,7 @@ class Mascota(models.Model):
     )
 
     prueba_medica_ids = fields.One2many(
-        'quintopet.pruebamedica', 
+        'quintopet.prueba_medica', 
         'mascota_id',              
         string='Pruebas Médicas'    
     )
