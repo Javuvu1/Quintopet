@@ -1,5 +1,27 @@
 <odoo>
     <data>
+        <!-- Vista Search -->
+        <record id="view_cliente_search" model="ir.ui.view">
+            <field name="name">quintopet.cliente.search</field>
+            <field name="model">quintopet.cliente</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name" string="Nombre"/>
+                    <field name="dni" string="DNI"/>
+                    <field name="email" string="Email"/>
+                    <field name="telefono" string="Teléfono"/>
+                    <field name="direccion" string="Dirección"/>
+                    <field name="tipo" string="Tipo de Cliente"/>
+                    <field name="state" string="Estado"/>
+
+                    <!-- Filtros predefinidos -->
+                    <filter name="paga_siempre" string="Paga Siempre" domain="[('state','=','paga_siempre')]"/>
+                    <filter name="no_paga" string="Dudoso pago" domain="[('state','=','no_paga')]"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Vista Formulario -->
         <record id="quintopet_cliente_form_view" model="ir.ui.view">
             <field name="name">quintopet.cliente.form</field>
             <field name="model">quintopet.cliente</field>
@@ -17,7 +39,6 @@
                     </header>
                     <sheet>
                         <group col="2">
-                            <!-- Columna izquierda: Datos generales -->
                             <group>
                                 <field name="name"/>
                                 <field name="dni"/>
@@ -47,7 +68,7 @@
             </field>
         </record>
 
-        <!-- Vista lista (tree) -->
+        <!-- Vista Lista (Tree) -->
         <record id="view_cliente_tree_view" model="ir.ui.view">
             <field name="name">quintopet.cliente.tree</field>
             <field name="model">quintopet.cliente</field>
@@ -69,6 +90,7 @@
             <field name="name">Clientes</field>
             <field name="res_model">quintopet.cliente</field>
             <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_cliente_search"/>  <!-- Se enlaza la vista search -->
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">Crea el primer cliente</p>
             </field>

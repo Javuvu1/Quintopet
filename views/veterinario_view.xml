@@ -6,39 +6,43 @@
             <field name="model">quintopet.veterinario</field>
             <field name="arch" type="xml">
                 <kanban class="o_kanban_view">
+                    <field name="name"/>
+                    <field name="dni"/>
+                    <field name="email"/>
+                    <field name="telefono"/>
+                    <field name="especialidad"/>
+                    <field name="numeroColegiado"/>
+                    <field name="nomina"/>
+                    <field name="foto"/>
+
                     <templates>
                         <t t-name="kanban-box">
-                            <div t-attf-data-id="{{ record.id }}" class="oe_kanban_card"
-                                t-att-onclick="'window.location=\'/web#id=' + record.id + '&amp;model=quintopet.veterinario&amp;view_type=form\''">
-                                
-                                <!-- Imagen del veterinario -->
+                            <div class="oe_kanban_card oe_kanban_global_click">
                                 <div class="o_kanban_image">
-                                    <field name="foto" widget="image" class="oe_avatar"/>
+                                    <img t-if="record.foto.value"
+                                         t-att-src="kanban_image('quintopet.veterinario', 'foto', record.id.raw_value)"
+                                         class="img-fluid rounded"
+                                         style="max-width: 100px; max-height: 100px;"/>
                                 </div>
-
-                                <!-- Información del veterinario -->
                                 <div class="oe_kanban_details">
-                                    <strong>
-                                        <field name="name"/>
-                                    </strong>
+                                    <strong t-esc="record.name.value"/>
                                     <div>
-                                        <span class="fa fa-id-card"/> <field name="dni"/>
+                                        <span class="fa fa-id-card"/> <t t-esc="record.dni.value"/>
                                     </div>
                                     <div>
-                                        <span class="fa fa-envelope"/> <field name="email"/>
+                                        <span class="fa fa-envelope"/> <t t-esc="record.email.value"/>
                                     </div>
                                     <div>
-                                        <span class="fa fa-phone"/> <field name="telefono"/>
+                                        <span class="fa fa-phone"/> <t t-esc="record.telefono.value"/>
                                     </div>
                                     <div>
-                                        <span class="fa fa-user-md" style="color:#3498db;"/> 
-                                        <field name="especialidad"/>
+                                        <span class="fa fa-user-md" style="color:#3498db;"/> <t t-esc="record.especialidad.value"/>
                                     </div>
                                     <div>
-                                        <span class="fa fa-certificate"/> <field name="numeroColegiado"/>
+                                        <span class="fa fa-certificate"/> <t t-esc="record.numeroColegiado.value"/>
                                     </div>
                                     <div>
-                                        <span class="fa fa-money"/> <field name="nomina"/>
+                                        <span class="fa fa-money"/> <t t-esc="record.nomina.value"/> €
                                     </div>
                                 </div>
                             </div>
@@ -48,13 +52,54 @@
             </field>
         </record>
 
-        <!-- Modificar acción para incluir vista Kanban -->
+        <!-- Vista Formulario -->
+        <record id="quintopet_veterinario_form_view" model="ir.ui.view">
+            <field name="name">quintopet.veterinario.form</field>
+            <field name="model">quintopet.veterinario</field>
+            <field name="arch" type="xml">
+                <form string="Veterinario">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="dni"/>
+                                <field name="email"/>
+                                <field name="telefono"/>
+                                <field name="especialidad"/>
+                                <field name="numeroColegiado"/>
+                                <field name="nomina"/>
+                            </group>
+                            <group>
+                                <field name="foto" widget="image" class="oe_avatar" style="width: 128px; height: 128px;"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Citas">
+                                <field name="cita_ids">
+                                    <tree editable="bottom">
+                                        <field name="id"/>
+                                        <field name="mascota_id"/>
+                                        <field name="horaInicio"/>
+                                        <field name="estado"/>
+                                        <field name="diagnostico"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acción de ventana -->
         <record id="veterinario_list_action" model="ir.actions.act_window">
             <field name="name">Veterinarios</field>
             <field name="res_model">quintopet.veterinario</field>
             <field name="view_mode">kanban,tree,form</field>
             <field name="help" type="html">
-                <p class="o_view_nocontent_smiling_face">Crea el primer veterinario</p>
+                <p class="o_view_nocontent_smiling_face">
+                    ¡Registra aquí a los veterinarios!
+                </p>
             </field>
         </record>
     </data>
