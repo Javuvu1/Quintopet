@@ -31,6 +31,7 @@
         'views/mascota_view.xml',
         'views/cita_view.xml',
         'views/tratamiento_view.xml',
+        'views/tratamiento_reports.xml',
         'views/medicamento_view.xml',
         'views/prueba_medica.xml',
         'views/clinica.xml',

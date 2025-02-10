@@ -1,0 +1,71 @@
+<odoo>
+    <data>
+        <!-- Plantilla del informe para tratamientos -->
+        <template id="report_quintopet_tratamientos_document">
+            <t t-name="quintopet.report_quintopet_tratamientos_document">
+                <t t-call="web.html_container">
+                    <t t-call="web.internal_layout">
+                        <div class="page">
+                            <h1>Lista de Tratamientos de QuintoPet</h1>
+                            <table class="table table-bordered" style="width: 100%; border-collapse: collapse; text-align: left;">
+                                <thead>
+                                    <tr>
+                                        <th style="border: 1px solid #000; padding: 8px;">Medicamento</th>
+                                        <th style="border: 1px solid #000; padding: 8px;">Descripción</th>
+                                        <th style="border: 1px solid #000; padding: 8px;">Patología</th>
+                                        <th style="border: 1px solid #000; padding: 8px;">Inicio</th>
+                                        <th style="border: 1px solid #000; padding: 8px;">Fin</th>
+                                        <th style="border: 1px solid #000; padding: 8px;">Cita ID</th>
+                                        <th style="border: 1px solid #000; padding: 8px;">Medicamentos</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-foreach="docs" t-as="tratamiento">
+                                        <tr>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="tratamiento.nombreMedicamento"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="tratamiento.descripcion"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="tratamiento.patologia"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="tratamiento.inicioTratamiento"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="tratamiento.finTratamiento"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <t t-esc="tratamiento.cita_id.id"/>
+                                            </td>
+                                            <td style="border: 1px solid #000; padding: 8px;">
+                                                <ul>
+                                                    <t t-foreach="tratamiento.medicamento_ids" t-as="medicamento">
+                                                        <li>
+                                                            <t t-esc="medicamento.id"/>
+                                                        </li>
+                                                    </t>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </t>
+                                </tbody>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+
+        <!-- Acción de reporte -->
+        <report id="quintopet_tratamientos_report_action" 
+        model="quintopet.tratamiento" 
+        string="Reporte de Tratamientos" 
+        report_type="qweb-pdf" 
+        name="quintopet.report_quintopet_tratamientos_document"
+        file="quintopet.report_quintopet_tratamientos_document" 
+        print_report_name="'Tratamientos_QuintoPet'" />
+    </data>
+</odoo>

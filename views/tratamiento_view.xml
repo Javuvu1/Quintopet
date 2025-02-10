@@ -1,49 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <!-- Vista formulario -->
-    <data>
-        <record id="quintopet_tratamiento_form_view" model="ir.ui.view">
-            <field name="name">quintopet.tratamiento.form</field>
-            <field name="model">quintopet.tratamiento</field>
-            <field name="arch" type="xml">
-                <form string="tratamiento">
-                    <sheet layout="auto">
-                        <group>
-                            <field name="nombreMedicamento" />
-                            <field name="descripcion" />
-                            <field name="patologia"/>
-                            <field name="inicioTratamiento" />
-                            <field name="finTratamiento" />
-                            <field name="cita_id" />
-                            <field name="medicamento_ids" />
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-        <!-- Vista lista (tree) -->
-        <record id="view_tratamiento_tree_view" model="ir.ui.view">
-            <field name="name">quintopet.tratamiento.tree</field>
-            <field name="model">quintopet.tratamiento</field>
-            <field name="arch" type="xml">
-                <tree string="tratamiento">
-                    <field name="nombreMedicamento" />
-                    <field name="descripcion" />
-                    <field name="patologia"/>
-                    <field name="inicioTratamiento" />
-                    <field name="finTratamiento" />
-                    <field name="cita_id" />
-                    <field name="medicamento_ids" />
-                </tree>
-            </field>
-        </record>
-        <!-- Action -->
-        <record id="act_tratamiento" model="ir.actions.act_window">
-            <field name="name">Tratamientos</field>
-            <field name="res_model">quintopet.tratamiento</field>
-            <field name="view_mode">tree,form</field>
-            <field name="help" type="html">
-                <p class="o_view_nocontent_smiling_face">Crea el primer tratamiento</p>
-            </field>
-        </record>
-    </data>
+    <!-- Vista Kanban para tratamientos -->
+    <record id="view_kanban_tratamiento" model="ir.ui.view">
+        <field name="name">quintopet.tratamiento.kanban</field>
+        <field name="model">quintopet.tratamiento</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_example">
+                <field name="id"/>
+                <field name="nombreMedicamento"/>
+                <field name="descripcion"/>
+                <field name="patologia"/>
+                <field name="inicioTratamiento"/>
+                <field name="finTratamiento"/>
+                <field name="cita_id"/>
+                <field name="medicamento_ids"/>
+                
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="d-flex">
+                                <!-- Contenido principal -->
+                                <div class="flex-grow-1 p-3">
+                                    <div class="o_kanban_title mb-2">
+                                        <strong class="text-primary" t-esc="record.nombreMedicamento.value"/>
+                                    </div>
+                                    <div class="o_kanban_content">
+                                        <p style="margin: 0;"><strong>Patología:</strong> <span t-esc="record.patologia.value"/></p>
+                                        <p style="margin: 0;"><strong>Descripción:</strong> <span t-esc="record.descripcion.value"/></p>
+                                        <div class="mt-2">
+                                            <p style="margin: 0;"><strong>Inicio:</strong> <span t-esc="record.inicioTratamiento.value"/></p>
+                                            <p style="margin: 0;"><strong>Fin:</strong> <span t-esc="record.finTratamiento.value"/></p>
+                                        </div>
+                                        <div class="mt-2">
+                                            <p style="margin: 0;"><strong>Cita:</strong> <span t-esc="record.cita_id.value"/></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Actualizar la acción para incluir la vista kanban -->
+    <record id="act_tratamiento" model="ir.actions.act_window">
+        <field name="name">Tratamientos</field>
+        <field name="res_model">quintopet.tratamiento</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea el primer tratamiento
+            </p>
+        </field>
+    </record>
 </odoo>
