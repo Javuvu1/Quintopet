@@ -261,5 +261,6 @@
             <field name="finTratamiento">2025-04-15</field>
             <field name="medicamento_ids" eval="[(6, 0, [ref('medicamento_omeprazol')])]"/>
         </record>
+        
     </data>
 </odoo>

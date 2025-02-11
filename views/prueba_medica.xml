@@ -1,10 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
+        <!-- Acción para la vista de Prueba Médica -->
         <record model="ir.actions.act_window" id="act_prueba_medica">
             <field name="name">Prueba Medica</field>
             <field name="res_model">quintopet.prueba_medica</field>
-            <field name="view_mode">form,tree</field>
+            <field name="view_mode">calendar,tree,form</field>
+        </record>
+
+        <!-- Vista de calendario para el modelo 'quintopet.prueba_medica' -->
+        <record id="view_calendar_prueba_medica" model="ir.ui.view">
+            <field name="name">quintopet.prueba_medica.calendar</field>
+            <field name="model">quintopet.prueba_medica</field>
+            <field name="arch" type="xml">
+                <calendar string="Pruebas Médicas" date_start="fechaHoras">
+                    <field name="tipoPrueba"/>
+                    <field name="mascota_id"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!-- Vista de árbol para el modelo 'quintopet.prueba_medica' -->
+        <record id="view_tree_prueba_medica" model="ir.ui.view">
+            <field name="name">quintopet.prueba_medica.tree</field>
+            <field name="model">quintopet.prueba_medica</field>
+            <field name="arch" type="xml">
+                <tree string="Pruebas Médicas">
+                    <field name="fechaHoras"/>
+                    <field name="tipoPrueba"/>
+                    <field name="mascota_id"/>
+                    <field name="clinica_id"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario para el modelo 'quintopet.prueba_medica' -->
+        <record id="view_form_prueba_medica" model="ir.ui.view">
+            <field name="name">quintopet.prueba_medica.form</field>
+            <field name="model">quintopet.prueba_medica</field>
+            <field name="arch" type="xml">
+                <form string="Prueba Médica">
+                    <header>
+                        <button name="btn_submit_to_enCurso" 
+                                string="Marcar como En Curso" 
+                                type="object" 
+                                class="oe_highlight"/>
+                        <button name="btn_submit_to_cancelada" 
+                                string="Marcar como Cancelada" 
+                                type="object" 
+                                class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="fechaHoras"/>
+                            <field name="tipoPrueba"/>
+                            <field name="observaciones"/>
+                            <field name="clinica_id"/>
+                            <field name="mascota_id"/>
+                            <field name="state" decoration-danger="state == 'cancelada'" decoration-success="state == 'enCurso'"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
         </record>
     </data>
 </odoo>
