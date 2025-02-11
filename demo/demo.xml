@@ -151,11 +151,12 @@
             <field name="nomina">2600</field>
             <field name="cita_ids" eval="[(6, 0, [ref('cita_4')])]"/>
         </record>
-
+        
+        <!-- Tengo una función en cita que si creas un cita en el pasado no se crea cuidado cuando corrijas esta parte que las fecha no se haya pasado-->
         <!-- Cita 1 - Asociada a Juan Martínez y Max -->
         <record id="cita_1" model="quintopet.cita">
-            <field name="horaInicio">2023-02-28 10:00:00</field>
-            <field name="horaFin">2023-02-28 11:00:00</field>
+            <field name="horaInicio">2025-03-28 10:00:00</field>
+            <field name="horaFin">2025-03-28 11:00:00</field>
             <field name="estado">Programada</field>
             <field name="diagnostico">Revisión anual</field>
             <field name="mascota_id" ref="mascota_max"/>
@@ -164,8 +165,8 @@
 
         <!-- Cita 2 - Asociada a María López y Luna -->
         <record id="cita_2" model="quintopet.cita">
-            <field name="horaInicio">2023-02-28 15:00:00</field>
-            <field name="horaFin">2023-02-28 16:00:00</field>
+            <field name="horaInicio">2025-03-28 15:00:00</field>
+            <field name="horaFin">2025-03-28 16:00:00</field>
             <field name="estado">Programada</field>
             <field name="diagnostico">Vacunación</field>
             <field name="mascota_id" ref="mascota_luna"/>
@@ -174,8 +175,8 @@
 
         <!-- Cita 3 - Asociada a Carlos García y Rocky -->
         <record id="cita_3" model="quintopet.cita">
-            <field name="horaInicio">2023-03-01 09:00:00</field>
-            <field name="horaFin">2023-03-01 10:00:00</field>
+            <field name="horaInicio">2025-04-01 09:00:00</field>
+            <field name="horaFin">2025-04-01 10:00:00</field>
             <field name="estado">Programada</field>
             <field name="diagnostico">Control de peso</field>
             <field name="mascota_id" ref="mascota_rocky"/>
@@ -184,8 +185,8 @@
 
         <!-- Cita 4 - Asociada a Luisa Rivera y Bella -->
         <record id="cita_4" model="quintopet.cita">
-            <field name="horaInicio">2023-03-02 14:00:00</field>
-            <field name="horaFin">2023-03-02 15:00:00</field>
+            <field name="horaInicio">2025-04-02 14:00:00</field>
+            <field name="horaFin">2025-04-02 15:00:00</field>
             <field name="estado">Programada</field>
             <field name="diagnostico">Revisión dental</field>
             <field name="mascota_id" ref="mascota_bella"/>
@@ -261,6 +262,5 @@
             <field name="finTratamiento">2025-04-15</field>
             <field name="medicamento_ids" eval="[(6, 0, [ref('medicamento_omeprazol')])]"/>
         </record>
-        
     </data>
 </odoo>
