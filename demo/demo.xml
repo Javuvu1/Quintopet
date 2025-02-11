@@ -262,5 +262,40 @@
             <field name="finTratamiento">2025-04-15</field>
             <field name="medicamento_ids" eval="[(6, 0, [ref('medicamento_omeprazol')])]"/>
         </record>
+        <!-- Creación de prueba medica -->
+        <record id="prueba_medica_1" model="quintopet.prueba_medica">
+            <field name="fechaHoras">2025-02-15 10:00:00</field>
+            <field name="tipoPrueba">Análisis de sangre</field>
+            <field name="observaciones">Revisión de niveles de glucosa</field>
+            <field name="state">enCurso</field>
+            <field name="clinica_id" ref="quintopet.clinica_1"/>
+            <field name="mascota_id" ref="quintopet.mascota_max"/>
+        </record>
+
+        <record id="prueba_medica_2" model="quintopet.prueba_medica">
+            <field name="fechaHoras">2025-02-20 14:30:00</field>
+            <field name="tipoPrueba">Radiografía</field>
+            <field name="observaciones">Evaluación de fractura en la pata trasera</field>
+            <field name="state">cancelada</field>
+            <field name="clinica_id" ref="quintopet.clinica_2"/>
+            <field name="mascota_id" ref="quintopet.mascota_max"/>
+        </record> 
+
+        <!-- Creación de clinica -->
+        <record id="quintopet.clinica_1" model="quintopet.clinica">
+            <field name="nombreClinica">Clínica Veterinaria Central</field>
+            <field name="direccionClinica">Calle Falsa 123, Madrid</field>
+            <field name="telefonoClinica">912345678</field>
+            <field name="cp">28001</field>
+            <field name="prueba_medica_id" ref="quintopet.prueba_medica_1"/>
+        </record>
+
+        <record id="quintopet.clinica_2" model="quintopet.clinica">
+            <field name="nombreClinica">PetCare Barcelona</field>
+            <field name="direccionClinica">Avenida Diagonal 456, Barcelona</field>
+            <field name="telefonoClinica">931234567</field>
+            <field name="cp">08002</field>
+            <field name="prueba_medica_id" ref="quintopet.prueba_medica_2"/>
+        </record>
     </data>
 </odoo>
