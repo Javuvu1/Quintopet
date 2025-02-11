@@ -6,6 +6,16 @@
             <field name="model">quintopet.medicamento</field>
             <field name="arch" type="xml">
                 <form string="medicamento">
+                    <header>
+                        <button name="btn_submit_to_enstock" 
+                                string="Marcar como En Stock" 
+                                type="object" 
+                                class="oe_highlight"/>
+                        <button name="btn_submit_to_sinstock" 
+                                string="Marcar como Sin Stock" 
+                                type="object" 
+                                class="oe_highlight"/>
+                    </header>
                     <sheet layout="auto">
                         <group>
                             <field name="nombreMedicamento" />
@@ -13,6 +23,7 @@
                             <field name="precio"/>
                             <field name="prospecto" />
                             <field name="fechaCaducidad" />
+                            <field name="stock" />
                             <field name="tratamiento_ids" />
                         </group>
                     </sheet>
@@ -30,6 +41,7 @@
                     <field name="precio"/>
                     <field name="prospecto" />
                     <field name="fechaCaducidad" />
+                    <field name="stock" />
                     <field name="tratamiento_ids" />
                 </tree>
             </field>

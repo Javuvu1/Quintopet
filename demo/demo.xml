@@ -192,5 +192,74 @@
             <field name="veterinario_id" ref="veterinario_luisa_rivera"/>
         </record>
 
+        <!-- Creación de Medicamentos -->
+        <record id="medicamento_ibuprofeno" model="quintopet.medicamento">
+            <field name="nombreMedicamento">Ibuprofeno</field>
+            <field name="referencia">IB1234</field>
+            <field name="precio">5.50</field>
+            <field name="stock">en_stock</field>
+            <field name="fechaCaducidad">2025-12-31</field>
+        </record>
+
+        <record id="medicamento_paracetamol" model="quintopet.medicamento">
+            <field name="nombreMedicamento">Paracetamol</field>
+            <field name="referencia">PA5678</field>
+            <field name="precio">3.20</field>
+            <field name="stock">en_stock</field>
+            <field name="fechaCaducidad">2026-05-20</field>
+        </record>
+
+        <record id="medicamento_amoxicilina" model="quintopet.medicamento">
+            <field name="nombreMedicamento">Amoxicilina</field>
+            <field name="referencia">AM9012</field>
+            <field name="precio">12.99</field>
+            <field name="stock">en_stock</field>
+            <field name="fechaCaducidad">2025-09-15</field>
+        </record>
+
+        <record id="medicamento_omeprazol" model="quintopet.medicamento">
+            <field name="nombreMedicamento">Omeprazol</field>
+            <field name="referencia">OM3456</field>
+            <field name="precio">7.80</field>
+            <field name="stock">en_stock</field>
+            <field name="fechaCaducidad">2026-08-10</field>
+        </record>
+
+        <!-- Creación de Tratamientos -->
+        <record id="tratamiento_fiebre" model="quintopet.tratamiento">
+            <field name="nombreMedicamento">Tratamiento para la fiebre</field>
+            <field name="descripcion">Reducción de fiebre y síntomas asociados.</field>
+            <field name="patologia">Fiebre alta</field>
+            <field name="inicioTratamiento">2025-02-10</field>
+            <field name="finTratamiento">2025-02-20</field>
+            <field name="medicamento_ids" eval="[(6, 0, [ref('medicamento_paracetamol')])]"/>
+        </record>
+
+        <record id="tratamiento_infeccion" model="quintopet.tratamiento">
+            <field name="nombreMedicamento">Tratamiento para infecciones</field>
+            <field name="descripcion">Uso de antibióticos para infecciones bacterianas.</field>
+            <field name="patologia">Infección bacteriana</field>
+            <field name="inicioTratamiento">2025-03-01</field>
+            <field name="finTratamiento">2025-03-10</field>
+            <field name="medicamento_ids" eval="[(6, 0, [ref('medicamento_amoxicilina')])]"/>
+        </record>
+
+        <record id="tratamiento_dolor" model="quintopet.tratamiento">
+            <field name="nombreMedicamento">Tratamiento para el dolor</field>
+            <field name="descripcion">Alivio del dolor leve a moderado.</field>
+            <field name="patologia">Dolor muscular</field>
+            <field name="inicioTratamiento">2025-02-05</field>
+            <field name="finTratamiento">2025-02-12</field>
+            <field name="medicamento_ids" eval="[(6, 0, [ref('medicamento_ibuprofeno')])]"/>
+        </record>
+
+        <record id="tratamiento_acidez" model="quintopet.tratamiento">
+            <field name="nombreMedicamento">Tratamiento para la acidez</field>
+            <field name="descripcion">Reducción del exceso de ácido en el estómago.</field>
+            <field name="patologia">Reflujo gástrico</field>
+            <field name="inicioTratamiento">2025-04-01</field>
+            <field name="finTratamiento">2025-04-15</field>
+            <field name="medicamento_ids" eval="[(6, 0, [ref('medicamento_omeprazol')])]"/>
+        </record>
     </data>
 </odoo>

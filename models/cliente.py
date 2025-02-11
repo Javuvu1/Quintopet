@@ -29,9 +29,6 @@ class Cliente(models.Model):
         string='Mascotas'
     )
 
-    total_mascotas = fields.Integer(
-        string="Número de Mascotas", compute="_compute_total_mascotas", store=True
-    )
 
     dni = fields.Char("DNI", required=True)
 
